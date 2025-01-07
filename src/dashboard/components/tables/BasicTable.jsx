@@ -16,11 +16,13 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import TuneIcon from '@mui/icons-material/Tune';
 import SearchIcon from '@mui/icons-material/Search';
+import { todosApi } from '../../../store/apis';
 
 function createData(code, status, name, id , product, entity ) {
   
   return { code, status, name,id, product, entity };
 }
+
 
 
 const rows = [
@@ -30,8 +32,6 @@ const rows = [
   createData('00242',<StatusLabel label='Rechazado' color='error'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad'),
   createData('00243',<StatusLabel label='Pendiente' color='secondary'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad'),  
   createData('00244',<StatusLabel label='Observado' color='info'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad') ,
-  
-  
   createData('00245',<StatusLabel label='Pendiente' color='secondary'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad'),  
   createData('00246',<StatusLabel label='Pendiente' color='secondary'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad'),  
   createData('00247',<StatusLabel label='Pendiente' color='secondary'></StatusLabel>, 'Metalurigicas Pacifico ', '30-22.333.444-1', 'Factoring', 'Entidad'),  
