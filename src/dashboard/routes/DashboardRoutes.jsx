@@ -1,15 +1,49 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { DashBoardPage } from "../pages/DashBoardPage"
-import { ProductsPage } from "../pages/ProductsPage"
+import { AccountPage, DashBoardPage, DashBoardPage2, DashBoardPage3, DashBoardPage4, NotFoundPage, ProfilePage, ProductsPage } from "../pages/"
 
 
-//export const JournalRoutes = () => {
-export const DashboardRoutes = () => {
+
+
+export const DashboardRoutes = ( { permission = "user2" }) => {
   return (
     <Routes>
-        <Route path="/" element={ <DashBoardPage /> } />
-        {/* <Route path="/*" element={ <Navigate to="/" /> } /> */}
-        <Route path="/products" element={ <ProductsPage /> } />
+      {/* ProductsPage is always accessible */}
+      <Route path="/" element={<ProductsPage />} />
+
+      {/* Restricted routes based on profile */}
+      {permission === "admin" && (
+        <>
+          <Route path="/dashboard" element={<DashBoardPage title="Home" />} />
+          <Route path="/dashboard2" element={<DashBoardPage2 title="Seguridad" />} />
+          <Route path="/dashboard3" element={<DashBoardPage3 title="Prendarios" />} />
+          <Route path="/dashboard4" element={<DashBoardPage4 title="Personales" />} />
+        </>
+      )}
+
+      {permission === "user" && (
+        <>
+          <Route path="/dashboard" element={<DashBoardPage title="Home" />} />
+          <Route path="/dashboard3" element={<DashBoardPage3 title="Prendarios" />} />
+          <Route path="/dashboard4" element={<DashBoardPage4 title="Personales" />} />
+        </>
+      )}
+
+      {permission === "default" && (
+        <>
+          <Route path="/dashboard" element={<DashBoardPage title="Home" />} />          
+        </>
+      )}  
+
+
+      {/* Profile and Account pages are always accessible */}
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/account" element={<AccountPage />} />
+
+      {/* Not Found route */}
+      <Route path="/not-found" element={<NotFoundPage />} />
+
+      {/* Redirect to "/" for invalid URLs */}
+      <Route path="/*" element={<Navigate to="/" />} /> 
     </Routes>
-  )
+  );
 }

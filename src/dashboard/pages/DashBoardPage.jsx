@@ -1,13 +1,13 @@
-import { IconButton } from '@mui/material';
-import { AddOutlined } from '@mui/icons-material';
 
+import { Typography } from '@mui/material';
 import { DashBoardLayout } from '../layout/DashBoardLayout';
-import { ExampleView, NoteView, NothingSelectedView } from '../views';
+import { ExampleView } from '../views';
 
 
-export const DashBoardPage = () => {
+export const DashBoardPage = ( {title = "Dashboard "}) => {
   return (
     <DashBoardLayout>                  
+      <Typography variant='h6'>{ title }</Typography>
       <ExampleView></ExampleView>
     </DashBoardLayout>
   )

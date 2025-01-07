@@ -18,9 +18,10 @@ export const startGoogleSingIn = ( ) => {
 
         const result = await singInWidthGoogle();
 
+        console.log( " startGoogleSingIn ");       
+
         if( !result.ok ) return dispatch( logout( result.errorMessage ) );
         
-        console.log( result )
         dispatch( login( result ));
 
     }
@@ -32,8 +33,7 @@ export const startLoginWithEmailPassword = ( {email, password} ) => {
         
         dispatch( checkingCredentials() );
 
-        const result = await loginBeClever( email, password );               
-        
+        const result = await loginBeClever( email, password ); 
 
         if( !result.ok ) return dispatch( logout( result.errorMessage ) );
 

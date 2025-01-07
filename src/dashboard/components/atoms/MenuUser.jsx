@@ -6,13 +6,27 @@ import { LogoutOutlined, AccountBoxOutlined, Circle } from '@mui/icons-material'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../../store/auth';
+import { useNavigate  } from 'react-router-dom';
 
 
 export const MenuUser = () => {
 
 
-  const { displayName } = useSelector( state => state.auth ); 
+  const { displayName, entity, permission  } = useSelector( state => state.auth ); 
+
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const onAccount= () =>{
+    navigate("/account");
+  }
+
+  const onProfile= () =>{
+    navigate("/profile");
+  }
+
+
   const onLogout = () =>{
     
     dispatch( startLogout() );    
@@ -29,8 +43,8 @@ export const MenuUser = () => {
 
   return (
     <>
-        <LogoutOutlined></LogoutOutlined>
-        <Typography variant='p'>Casa Central - Sucursal </Typography>
+        <LogoutOutlined></LogoutOutlined> 
+        <Typography variant='body1'>{ entity  }</Typography>
         <IconButton  
           onClick={handleClick}
           sx={{
@@ -52,9 +66,9 @@ export const MenuUser = () => {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}> Perfil</MenuItem>
-          <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
-          <MenuItem onClick={ onLogout } >Salir</MenuItem>
+          <MenuItem onClick={ onProfile }> Perfil</MenuItem>
+          <MenuItem onClick={ onAccount }> Mi cuenta </MenuItem>
+          <MenuItem onClick={ onLogout } > Salir</MenuItem>
           {/* <MenuItem component={Link} to="/auth/login">Salir</MenuItem> */}
         </Menu>
     

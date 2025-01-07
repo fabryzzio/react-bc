@@ -6,6 +6,7 @@ import LogoOrigination from '../../assets/LogoOrigination.svg';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export const ProductsListView = () => {
+
   const products = [
     {
         img: LogoTracking,
@@ -36,31 +37,15 @@ export const ProductsListView = () => {
         img: LogoOrigination,
         title: 'Clever Origination',
         description: 'Software BeClever',        
-    }
-    // ,
-    // {
-    //     img: LogoTracking,
-    //     title: 'Clever Tracking',
-    //     description: 'Software BeClever',
-    // },
-    // {
-    //     img: LogoCore,
-    //     title: 'Clever Core',
-    //     description: 'Software BeClever',
-    // },
-    // {
-    //     img: LogoOrigination,
-    //     title: 'Clever Origination',
-    //     description: 'Software BeClever',
-    // },    
+    }      
     
   ];
 
   const navigate = useNavigate(); // Initialize navigate hook
 
   const handleProductClick = (product) => {
-    //Navegacion mocked
-    navigate("/");    
+    //Navegacion default para todos los usuarios
+    navigate("/dashboard");    
   };
 
   return (

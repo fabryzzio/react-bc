@@ -11,17 +11,22 @@ export const singInWidthGoogle = async() => {
     try {
 
         const result = await signInWithPopup( FirebaseAuth, googleProvider ); 
-        // const credencials = GoogleAuthProvider.credentialFromResult( result ); 
-        // console.log( { credencials } );
+        const credencials = GoogleAuthProvider.credentialFromResult( result );         
         
         const { displayName, email, photoURL, uid } = result.user; 
-        console.log( { result } );
+        
+        const entity = "entity Test"; 
+        
+        
+        const response = {
+            ok: true,            
+            displayName, email, photoURL, uid, entity 
+        };
+        console.log( "provider ");
+        console.log( response );
 
-        return {
-            ok: true,
-            //user info
-            displayName, email, photoURL, uid
-        }
+        return response;
+
 
     } catch ( error ) {
         console.log( { error } ); 
@@ -59,10 +64,19 @@ export const loginBeClever = async( email, password ) => {
         let displayName = lastName;        
         let uid         = userCore;
         let photoURL    = "";
+        
+        const entity = "entity Test"; 
+
+        // const products = [
+        //     { id: 1, name: 'Manzana', price: 0.5 },
+        //     { id: 2, name: 'Banana', price: 0.3 },
+        //   ];
+
+
 
         return {
             ok: true,            
-            displayName, email, photoURL, uid
+            displayName, email, photoURL, uid, entity
         }
 
 

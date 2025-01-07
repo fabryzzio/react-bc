@@ -1,16 +1,46 @@
-import { Card, Box, Grid, CardMedia, CardContent, CardActionArea, Typography, Link } from '@mui/material';
+import { Card, Grid, CardMedia, Typography } from '@mui/material';
 import Azul from '../../assets/icons/Azul.svg'; 
 import Verde from '../../assets/icons/Verde.svg'; 
 import Amarillo from '../../assets/icons/Amarillo.svg'; 
 import Salmon from '../../assets/icons/Salmon.svg'; 
 import Violeta from '../../assets/icons/Violeta.svg'; 
 import Rojo from '../../assets/icons/Rojo.svg'; 
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import { bcTheme } from '../../theme';
 
 export const ProductsListHeader = () => {
   const products = [    
-    {
+      {
+          img: Azul,
+          title: 'Origination',
+          description: 'Software BeClever',
+      },
+      {
+        img: Amarillo,
+        title: 'Monitor',
+        description: 'Software BeClever',
+      },
+      {
+        img: Salmon,
+        title: 'Report',
+        description: 'Software BeClever',
+      },
+      {
+        img: Verde,
+        title: 'Core',
+        description: 'Software BeClever',
+      },
+      {
+        img: Violeta,
+        title: 'Decision',
+        description: 'Software BeClever',
+      },
+      {
+        img: Rojo,
+        title: 'Tracking',
+        description: 'Software BeClever',
+      },
+      {
         img: Azul,
         title: 'Origination',
         description: 'Software BeClever',
@@ -25,43 +55,13 @@ export const ProductsListHeader = () => {
       title: 'Report',
       description: 'Software BeClever',
     },
-    {
-      img: Verde,
-      title: 'Core',
-      description: 'Software BeClever',
-    },
-    {
-      img: Violeta,
-      title: 'Decision',
-      description: 'Software BeClever',
-    },
-    {
-      img: Rojo,
-      title: 'Tracking',
-      description: 'Software BeClever',
-    },
-    {
-      img: Azul,
-      title: 'Origination',
-      description: 'Software BeClever',
-  },
-  {
-    img: Amarillo,
-    title: 'Monitor',
-    description: 'Software BeClever',
-  },
-  {
-    img: Salmon,
-    title: 'Report',
-    description: 'Software BeClever',
-  },
   ];
 
   const navigate = useNavigate(); // Initialize navigate hook
 
   const handleProductClick = (product) => {
     //Navegacion mocked
-    navigate("/");
+    navigate("/dashboard");
     
   };
 

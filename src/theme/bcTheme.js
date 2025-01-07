@@ -1,8 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import '@fontsource/inter';
-import '@fontsource/roboto';
-
 
 export const bcTheme = createTheme({         
     /*Tipografia de la aplicacion */
@@ -14,6 +12,9 @@ export const bcTheme = createTheme({
         fontWeightRegular: 400,
         fontWeightMedium: 500,
         fontWeightBold: 700,
+        body1: {
+          fontSize: 12,
+        },
       },
       
     palette: {

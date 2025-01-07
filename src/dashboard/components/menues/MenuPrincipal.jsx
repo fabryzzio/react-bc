@@ -4,21 +4,44 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
+
+
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import HomeIcon from '@mui/icons-material/Home';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import StarBorder from '@mui/icons-material/StarBorder';
-import { Box, Typography } from '@mui/material';
-import { Circle } from '@mui/icons-material';
+
+
+import { Circle, StarBorder } from '@mui/icons-material';
+
+
+import { Box, Typography} from '@mui/material';
+import { useNavigate  } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const MenuPrincipal = () => {
     
+    {/* Se obtienen los permisos de store  */}
+    const { permission  } = useSelector( state => state.auth );    
+
+
     const [selectedIndex, setSelectedIndex] = React.useState(1);
+    
+    const navigate = useNavigate(); 
 
     const handleListItemClick = (event, index) => {
+
+      switch( index ){
+        
+        case 1: navigate("/dashboard");break;
+        case 2: navigate("/dashboard2");break;
+        case 3: navigate("/dashboard3");break;
+        case 4: navigate("/dashboard4");break;        
+      }
+
       setSelectedIndex(index);
+
     };
     
     const [open, setOpen] = React.useState(true);
@@ -52,7 +75,7 @@ export const MenuPrincipal = () => {
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
-        <ListItemText primary="Inicio" />
+        <ListItemText primary="Inicio"  />
       </ListItemButton>
     
 
@@ -130,10 +153,10 @@ export const MenuPrincipal = () => {
       </ListItemButton>
     </List>    
     
-    <Box sx={{ position: 'fixed', bottom: 10, left: 80, width: '100%' }}>        
-        <Typography>Clever Origination</Typography>
-        <Typography>Version 1.0.2.0 * </Typography>
-        <Typography>&reg; BeClever</Typography>
+    <Box sx={{ position: 'fixed', bottom: 10, left: 20, fontSize:12 }}>        
+        <Typography variant='body1'>Clever Origination</Typography>
+        <Typography variant='body1'>Version 1.0.2.0 * </Typography>
+        <Typography variant='body1'>&reg; BeClever</Typography>
     </Box>
     
     </>             

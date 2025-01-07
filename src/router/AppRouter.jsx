@@ -3,25 +3,28 @@ import { AuthRoutes } from '../auth/routes/AuthRoutes';
 import { DashboardRoutes } from '../dashboard/routes/DashboardRoutes';
 import { Loading } from '../components';
 import { useCheckAuth } from '../hooks';
+import { statusAuth } from '../constants';
+import { ProductsPage } from '../dashboard/pages/ProductsPage';
 
 
 export const AppRouter = () => {
   
-  const { status  } = useCheckAuth();
+  const { status, permission  } = useCheckAuth();
   
-  if( status === 'checking'){
+  if( status === statusAuth.CHECKING){
     return <Loading open={true}/>
   }
-
+  console.log("status")
   console.log( status );
-
+  console.log( permission );
+  
   return (
     /*Routes de sistema  */
     <Routes>
         {
-          status === 'authenticated' 
-           //? <Route path="/products" element={ <ProductsPage /> } />
-          ? <Route path="/*" element={ <DashboardRoutes /> } />
+          status === statusAuth.AUTHENTICATED 
+          //? <Route path="/products" element={ <ProductsPage /> } />
+          ? <Route path="/*" element={ <DashboardRoutes permission={ permission } /> } />
           : <Route path="/auth/*" element={ <AuthRoutes /> } />
         }   
 

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { statusAuth } from "../../constants";
 
 export const authSlice = createSlice({
 
@@ -6,46 +7,59 @@ export const authSlice = createSlice({
     initialState:{
         // Estado inicial de la aplicacion 
         // 'checking' 'not-authenticate', 'authenticated
-        status: 'checking', 
+        status: statusAuth.CHECKING, 
         uid: null,
         email: null, 
-        displayName: null,
+        displayName: null,        
         photoURL: null,     
-        errorMessage: null
-
+        errorMessage: null,
+        entity: null, 
+        permission: null
+               
     }, 
     reducers:{
 
         login: (state, { payload } ) => {
 
-            state.status =  'authenticated', 
+            console.log( payload ); 
+            state.status = statusAuth.AUTHENTICATED, 
             state.uid =  payload.uid,
             state.email =  payload.email, 
             state.displayName =  payload.displayName,
             state.photoURL =  payload.photoURL,     
-            state.errorMessage =  null
+            state.errorMessage =  null, 
+            state.entity =  payload.entity
+            state.permission =  payload.permission
+            
         },
 
-        logout: ( state, {payload} ) => {
-            state.status =  'not-authenticate', 
+        logout: ( state, { payload } ) => {
+
+            console.log( payload ); 
+
+            state.status = statusAuth.NOAUTORIZATHED, 
             state.uid =  null,
             state.email =  null, 
             state.displayName =  null,
             state.photoURL =  null,     
-            state.errorMessage =  payload?.errorMessage
+            state.errorMessage =  payload?.errorMessage,
+            state.entity = payload?.entity
         },
         
         checkingCredentials: (state) => {
-            state.status = 'checking';            
+            state.status = statusAuth.CHECKING             
         },
 
         login2: (state, { payload } ) => {
-            state.status =  'authenticated', 
+            state.status = statusAuth.AUTHENTICATED, 
             state.uid =  payload.uid,
             state.email =  payload.email, 
             state.displayName =  payload.displayName,
             state.photoURL =  payload?.photoURL,     
-            state.errorMessage =  payload?.errorMessage
+            state.errorMessage =  payload?.errorMessage,
+            state.entity = payload.entity,
+            state.permission =  payload.permission
+
         }
     }
 });
