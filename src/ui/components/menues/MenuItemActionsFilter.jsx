@@ -7,27 +7,22 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 
 
-export default function MenuItemActionsFilter() {
+export default function MenuItemActionsFilter( { filters= []}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   return (
     <>         
-        <IconButton 
-          onClick={handleClick}
-          sx={{
-                            // '&:hover': {backgroundColor: 'primary.color'},
-              // '&:active': {transform: 'scale(0.9)'}
-            }}
-          >
+        <IconButton onClick={handleClick}>
           <MenuIcon  />          
-            
         </IconButton>
         <Menu
           id="basic-menu"
@@ -38,12 +33,10 @@ export default function MenuItemActionsFilter() {
             'aria-labelledby': 'basic-button',
           }}          
         >
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> Código </MenuItem>
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> Estados</MenuItem>
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> Razón Social</MenuItem>
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> CUIT</MenuItem>
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> Producto</MenuItem>
-          <MenuItem onClick={handleClose}><CheckBox></CheckBox> Entidad</MenuItem>
+           {filters.map((filter, index) => (
+            <MenuItem onClick={handleClose} key={index}><CheckBox></CheckBox>  {filter} </MenuItem>                          
+          ))}
+          
         </Menu>
     
     </>

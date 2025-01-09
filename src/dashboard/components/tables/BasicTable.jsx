@@ -6,9 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import MenuItemActions from '../menues/MenuItemActions';
-import MenuItemActionsFilter from '../menues/MenuItemActionsFilter';
-import { StatusLabel } from '../atoms/StatusLabel';
+import MenuItemActions from '../../../ui/components/menues/MenuItemActions';
+import MenuItemActionsFilter from '../../../ui/components/menues/MenuItemActionsFilter';
+import { StatusLabel } from '../../../ui/components/atoms/StatusLabel';
 import { BottomNavigation, BottomNavigationAction, Box, Divider, Grid, InputAdornment, TablePagination, TextField, Typography } from '@mui/material';
 
 
@@ -16,7 +16,12 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import TuneIcon from '@mui/icons-material/Tune';
 import SearchIcon from '@mui/icons-material/Search';
-import { todosApi } from '../../../store/apis';
+import { useGetTodoQuery, useGetTodosQuery } from '../../../store/apis';
+import { useState } from 'react';
+
+
+
+
 
 function createData(code, status, name, id , product, entity ) {
   
@@ -48,6 +53,14 @@ const rows = [
 
 
 export const BasicTable = () => {
+
+
+  const {data: todos = [], isLoadingList} = useGetTodosQuery();
+  const [todoId, setTodoId] = useState(1);
+  const {data: todo, isLoading} = useGetTodoQuery(todoId);
+
+  
+  console.log(todo);
 
   const [value, setValue] = React.useState(0);
 

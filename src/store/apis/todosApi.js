@@ -14,7 +14,10 @@ export const todosApi = createApi({
         getTodo: builder.query({
             query: (todoId) => `/todos/${todoId}`
         }),
+        getPhotos:builder.query({
+            query: () => '/photos'
+        }),
     })
 });
 
-export const {useGetTodosQuery, useGetTodoQuery} = todosApi; 
+export const {useGetTodosQuery, useGetTodoQuery, useGetPhotosQuery } = todosApi; 

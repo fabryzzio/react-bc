@@ -4,7 +4,6 @@ import { NavBar, SideBar } from '../components';
 const drawerWidth = 0;
 export const JournalLayoutStart = ({ children }) => {
   return (
-
     <>
       <Box
                 component="nav"

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { userForm } from '../../hooks';
 
 import { startGoogleSingIn, startLoginWithEmailPassword } from '../../store/auth/thunks';
-import { Loading } from '../../ui/components/Loading';
+import { Loading } from '../../ui/components/atoms/Loading';
 import { useGetAuthQuery, useGetTodoQuery, useGetTodosQuery } from '../../store/apis';
 
 

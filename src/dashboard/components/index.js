@@ -1,18 +1,18 @@
-export * from './nav/NavBar';
-export * from './sidebar/SideBar';
-export * from './nav/NavBarProduct';
-export * from './atoms/MenuUser';
-export * from './atoms/ConfirmationDialog';
-export * from './atoms/StatusLabel';
+export * from '../../ui/components/nav/NavBar';
+export * from '../../ui/components/sidebar/SideBar';
+export * from '../../ui/components/nav/NavBarProduct';
+export * from '../../ui/components/atoms/MenuUser';
+export * from '../../ui/components/atoms/ConfirmationDialog';
+export * from '../../ui/components/atoms/StatusLabel';
 
-export * from './menues/MenuPrincipal';
-export * from './menues/MenuSecondary';
-export * from './atoms/SliderInputAmount';
-export * from './atoms/InputMaskPhone';
-export * from './atoms/InputMaskMoney';
+export * from '../../ui/components/menues/MenuPrincipal';
+export * from '../../ui/components/menues/MenuSecondary';
+export * from '../../ui/components/atoms/SliderInputAmount';
+export * from '../../ui/components/atoms/InputMaskPhone';
+export * from '../../ui/components/atoms/InputMaskMoney';
 export * from './tables/BasicTable';
-export * from './menues/MenuItemActions';
-export * from './menues/MenuItemActionsFilter';
-export * from './menues/MenuProducts';
+export * from '../../ui/components/menues/MenuItemActions';
+export * from '../../ui/components/menues/MenuItemActionsFilter';
+export * from '../../ui/components/menues/MenuProducts';
 
 

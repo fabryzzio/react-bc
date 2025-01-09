@@ -8,11 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../../store/auth';
 import { useNavigate  } from 'react-router-dom';
 
-
 export const MenuUser = () => {
 
-
-  const { displayName, entity, permission  } = useSelector( state => state.auth ); 
+  const { displayName, entity  } = useSelector( state => state.auth ); 
 
   const dispatch = useDispatch();
 
@@ -25,7 +23,6 @@ export const MenuUser = () => {
   const onProfile= () =>{
     navigate("/profile");
   }
-
 
   const onLogout = () =>{
     
@@ -69,7 +66,7 @@ export const MenuUser = () => {
           <MenuItem onClick={ onProfile }> Perfil</MenuItem>
           <MenuItem onClick={ onAccount }> Mi cuenta </MenuItem>
           <MenuItem onClick={ onLogout } > Salir</MenuItem>
-          {/* <MenuItem component={Link} to="/auth/login">Salir</MenuItem> */}
+          
         </Menu>
     
     </>

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Box, Drawer } from '@mui/material'
 
 
-import { MenuPrincipal } from '../menues/MenuPrincipal';
+import { MenuPrincipal } from '../../../ui/components/menues/MenuPrincipal';
 
 
 export const SideBar = ({ drawerWidth = 304 }) => {        

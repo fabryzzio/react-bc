@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { AppBar, BottomNavigation, BottomNavigationAction, Box, Button, Container, Grid, Icon, IconButton, Tab, Tabs, Toolbar, Typography } from '@mui/material';
+import { AppBar,  Box, Button, Grid,  IconButton, Tab, Tabs, Toolbar } from '@mui/material';
 
 import LogoProduct from '../../../assets/products/LogoOriginationProduct.svg'; 
 
 import MenuProducts from '../menues/MenuProducts';
 
-
 import MenuIcon from '@mui/icons-material/Menu';
-import { StatusLabel } from '../atoms/StatusLabel';
+
 import { MenuUser } from '../atoms/MenuUser';
-
-
 
 
 export const NavBarProduct = ({ drawerWidth = 240 }) => {

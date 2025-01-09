@@ -1,8 +1,7 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import {  NavBarProduct, SideBar } from '../components';
 
-import { SideBar1 } from '../components/sidebar/SideBar1';
+
 
 const drawerWidth = 250;
 

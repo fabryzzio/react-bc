@@ -1,6 +1,6 @@
 import { AppBar,  Box,  Grid, IconButton, Toolbar } from '@mui/material';
 import logo from '../../../assets/logo.svg'; 
-import MenuProducts from '../menues/MenuProducts';
+import MenuProducts from '../../../ui/components/menues/MenuProducts';
 import { MenuUser } from '../atoms/MenuUser';
 
 

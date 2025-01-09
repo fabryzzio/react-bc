@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import { Box } from '@mui/material';
-import { ProductsListHeader } from '../../views';
+import { ProductsListHeader } from '../../../dashboard/views';
 import AppsIcon from '@mui/icons-material/Apps';
 
 export default function MenuProducts() {

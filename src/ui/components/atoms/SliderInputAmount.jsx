@@ -3,23 +3,27 @@ import { FormControl,  Grid,  InputAdornment, InputLabel, OutlinedInput, Slider,
 
 import { useState } from 'react';
 
-const MAX = 50000;
-const MIN = 0;
-
-export const SliderInputAmount = () => {
+export const SliderInputAmount = ( {max = 1000, min = 0 }) => {
 
   /* Campo de texto */
   const [valueInput, setValue] = useState("");
   
-  /*Slider */
-  const [sliderValue, setSliderValue] = useState(MIN);
+  /* Slider */
+  const [sliderValue, setSliderValue] = useState( min );
 
-    /*Evento */
+  /* Evento */
   const onHandlerInput = (event) => {
+
+    let newValue = event.target.value.replace(/[^0-9]/g, '');
+
     
-    const newValue = event.target.value.replace(/[^0-9]/g, '');
-    setValue(newValue);
-    
+    if (!isNaN(newValue) && newValue <= max ) {
+      setValue(newValue);
+    } else {
+      setValue(newValue.slice(0, -1));
+      newValue = newValue.slice(0, -1);
+    }
+
     //Update slider value only if the entered value is a valid number
     if (!isNaN(newValue)) {      
       setSliderValue(Number(newValue)); // Convert to a number before setting
@@ -31,7 +35,7 @@ export const SliderInputAmount = () => {
   // Eventos de slider 
   const onHandlerSlider = (event, newValue) =>{
     setValue(newValue);    
-    setSliderValue(Number(newValue));
+    setSliderValue( Number(newValue) );
   }
 
   return (
@@ -39,17 +43,19 @@ export const SliderInputAmount = () => {
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={3}>
           <FormControl onChange={onHandlerInput} variant='outlined' fullWidth sx={{ m: 1 }}>
+            
             <InputLabel htmlFor="outlined-adornment-amount">Monto</InputLabel>
-            <OutlinedInput                 
+            <OutlinedInput 
+                autoComplete="off"
                 id="outlined-adornment-amount"
                 startAdornment={<InputAdornment position="start"> 
                 <span style={{ color: 'grey', fontWeight: 'bold' }}>$</span></InputAdornment>}
                 endAdornment={<span style={{ color: 'black', fontWeight: 'bold', fontSize: 10 }}>,00</span>}
                 label="Monto"
                 value={valueInput}
-                sx={{fontSize:24, fontWeight: 'bold', textAlign: 'left'}}
-                placeholder='1.000,00'                 
-            />
+                sx={{fontSize:24, fontWeight: 'bold'}}
+                placeholder={max}                 
+            />            
           </FormControl>
         </Grid>
       </Grid>
@@ -57,23 +63,18 @@ export const SliderInputAmount = () => {
       <Grid container justifyContent="center" alignItems="center" sx={{p:5}}>
         <Grid item xs={6}>          
           <Slider             
-            valueLabelDisplay="on" min={MIN} max={MAX} onChange={onHandlerSlider}  aria-label="Default" value={sliderValue} />          
+            valueLabelDisplay="on" min={ min } max={ max } onChange={onHandlerSlider}  aria-label="Default" value={sliderValue} />          
           
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography>
-                    $ {MIN} min
+                    $ { min } min
                 </Typography>
                 <Typography>
-                    $ {MAX} max 
+                    $ { max } max 
                 </Typography>
             </Box>
         </Grid>        
       </Grid>
-
-      
-
-      
-
     </>
   );
 };
