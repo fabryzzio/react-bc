@@ -67,7 +67,7 @@ export const ProductsListHeader = () => {
 
 
   return (
-    <Grid container  spacing={1} paddingTop={5} paddingBottom={5} >      
+    <Grid container spacing={1} paddingTop={5} paddingBottom={5} >      
     
       {products.map((item, index) => (
         <Grid item xs={12} sm={6} md={4} key={index}>

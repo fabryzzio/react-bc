@@ -2,7 +2,8 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton, Typography } from '@mui/material';
-import { LogoutOutlined, AccountBoxOutlined, Circle } from '@mui/icons-material';
+import { LogoutOutlined, AccountBoxOutlined, AccountCircle, AccountCircleOutlined, LockOutlined, HelpOutline, BuildCircle, Circle } from '@mui/icons-material';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../../store/auth';
@@ -18,6 +19,10 @@ export const MenuUser = () => {
 
   const onAccount= () =>{
     navigate("/account");
+  }
+
+  const OnChangePass= () =>{
+    navigate("/change-password");
   }
 
   const onProfile= () =>{
@@ -40,7 +45,7 @@ export const MenuUser = () => {
 
   return (
     <>
-        <LogoutOutlined></LogoutOutlined> 
+        
         <Typography variant='body1'>{ entity  }</Typography>
         <IconButton  
           onClick={handleClick}
@@ -63,9 +68,10 @@ export const MenuUser = () => {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={ onProfile }> Perfil</MenuItem>
-          <MenuItem onClick={ onAccount }> Mi cuenta </MenuItem>
-          <MenuItem onClick={ onLogout } > Salir</MenuItem>
+          <MenuItem onClick={ onAccount }>  <HelpOutline  fontSize='small' sx={{mr:1}} />   Preguntas Frecuentes </MenuItem>
+          <MenuItem onClick={ OnChangePass }>  <LockOutlined  fontSize='small' sx={{mr:1}} />  Cambio de clave </MenuItem>
+          <MenuItem onClick={ onProfile }>  <AccountCircleOutlined  fontSize='small' sx={{mr:1}}  />  Perfil</MenuItem>          
+          <MenuItem onClick={ onLogout } >  <Circle  fontSize='small' sx={{mr:1}} />  Salir</MenuItem>
           
         </Menu>
     

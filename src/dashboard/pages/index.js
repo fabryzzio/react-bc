@@ -1,10 +1,14 @@
+export * from './AccountPage';
+export * from './ChangePassPage';
+export * from './ComponentsPage';
 export * from './DashBoardPage';
-export * from './DashBoardPage2';
-export * from './DashBoardPage3';
+export * from './PersonalesPage';
 export * from './DashBoardPage4';
+export * from './HomePage';
+export * from './NotFoundPage';
 export * from './ProductsPage';
 export * from './ProfilePage';
-export * from './AccountPage';
-export * from './NotFoundPage';
+export * from './SeguridadPage';
+export * from './PersonalesPage';
 
 

@@ -30,8 +30,6 @@ export const SliderInputAmount = ( {max = 1000, min = 0 }) => {
     }
   };
 
-
-
   // Eventos de slider 
   const onHandlerSlider = (event, newValue) =>{
     setValue(newValue);    
@@ -39,7 +37,8 @@ export const SliderInputAmount = ( {max = 1000, min = 0 }) => {
   }
 
   return (
-    <>        
+    <>      
+      <Typography variant='h7'>Slider amount </Typography>  
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={3}>
           <FormControl onChange={onHandlerInput} variant='outlined' fullWidth sx={{ m: 1 }}>
@@ -52,7 +51,7 @@ export const SliderInputAmount = ( {max = 1000, min = 0 }) => {
                 <span style={{ color: 'grey', fontWeight: 'bold' }}>$</span></InputAdornment>}
                 endAdornment={<span style={{ color: 'black', fontWeight: 'bold', fontSize: 10 }}>,00</span>}
                 label="Monto"
-                value={valueInput}
+                value={ valueInput }
                 sx={{fontSize:24, fontWeight: 'bold'}}
                 placeholder={max}                 
             />            

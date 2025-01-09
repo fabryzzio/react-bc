@@ -4,42 +4,39 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-
-
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
+
 import HomeIcon from '@mui/icons-material/Home';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 
-import { Circle, StarBorder } from '@mui/icons-material';
+import { Circle, StarBorder, SecurityOutlined, CalendarMonthOutlined, HelpCenterOutlined} from '@mui/icons-material';
 
 
-import { Box, Typography} from '@mui/material';
-import { useNavigate  } from 'react-router-dom';
+import { Box, Button, Typography} from '@mui/material';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export const MenuPrincipal = () => {
     
     {/* Se obtienen los permisos de store  */}
-    const { permission  } = useSelector( state => state.auth );    
+    const { permission  } = useSelector( state => state.auth ); 
 
-
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
-    
-    const navigate = useNavigate(); 
+    const [selectedIndex, setSelectedIndex] = React.useState('inicio');
 
     const handleListItemClick = (event, index) => {
 
-      switch( index ){
+      event.stopPropagation();
+      // switch( index ){
         
-        case 1: navigate("/dashboard");break;
-        case 2: navigate("/dashboard2");break;
-        case 3: navigate("/dashboard3");break;
-        case 4: navigate("/dashboard4");break;        
-      }
-
+      //   case 1: navigate("/dashboard");break;
+      //   case 4: navigate("/dashboard");break;
+      //   case 2: navigate("/dashboard2");break;        
+      //   case 3: navigate("/dashboard3");break;
+      //   case 6: navigate("/componentes");break;        
+      // }
+      console.log( index );
       setSelectedIndex(index);
 
     };
@@ -70,20 +67,22 @@ export const MenuPrincipal = () => {
                 //   }
         >
       
-      <ListItemButton  selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}>
+
+      
+
+
+      <ListItemButton  selected={selectedIndex === 'inicio'}
+          onClick={(event) => handleListItemClick(event, 'inicio')} component={Link} to="/dashboard">
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
         <ListItemText primary="Inicio"  />
       </ListItemButton>
     
-
-
-      <ListItemButton  selected={selectedIndex === 2}
-          onClick={(event) => handleListItemClick(event, 2)}>
+      <ListItemButton  selected={selectedIndex === 'seguridad'}
+          onClick={(event) => handleListItemClick(event, 'seguridad')} component={Link} to="/seguridad">
         <ListItemIcon>
-          <DraftsIcon />
+          <SecurityOutlined />
         </ListItemIcon>
         <ListItemText primary="Seguridad" />
       </ListItemButton>
@@ -99,21 +98,21 @@ export const MenuPrincipal = () => {
 
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}  selected={selectedIndex === 3}
-            onClick={(event) => handleListItemClick(event, 3)}>            
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Prendarios" />
-
-          </ListItemButton>
-
-          <ListItemButton sx={{ pl: 4 }}  selected={selectedIndex === 4}
-            onClick={(event) => handleListItemClick(event, 4)}>            
+          <ListItemButton sx={{ pl: 4 }}  selected={selectedIndex === 'personales'}
+            onClick={(event) => handleListItemClick(event, 'personales')} component={Link} to="/personales">            
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
             <ListItemText primary="Personales" />
+
+          </ListItemButton>
+
+          <ListItemButton sx={{ pl: 4 }}  selected={selectedIndex === 'prendarios'}
+            onClick={(event) => handleListItemClick(event, 'prendarios')} component={Link} to="/prendarios">            
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Prendarios" />
           </ListItemButton>
         </List>
       </Collapse>
@@ -123,25 +122,25 @@ export const MenuPrincipal = () => {
       <ListItemButton  selected={selectedIndex === 5}
           onClick={(event) => handleListItemClick(event, 5)}>
         <ListItemIcon>
-          <Circle />
+          <CalendarMonthOutlined />
         </ListItemIcon>
         <ListItemText primary="Agenda" />
       </ListItemButton>
 
       <ListItemButton  selected={selectedIndex === 6}
-          onClick={(event) => handleListItemClick(event, 6)}>
+          onClick={(event) => handleListItemClick(event, 6)} component={Link} to="/componentes">
         <ListItemIcon>
           <Circle />
         </ListItemIcon>
-        <ListItemText primary="Tarjetas" />
+        <ListItemText primary="Componentes" />
       </ListItemButton>
 
       <ListItemButton  selected={selectedIndex === 7}
           onClick={(event) => handleListItemClick(event, 7)}>
         <ListItemIcon>
-          <Circle />
+          <HelpCenterOutlined />
         </ListItemIcon>
-        <ListItemText primary="Licenciamiento" />
+        <ListItemText primary="Ayuda" />
       </ListItemButton>
 
       <ListItemButton  selected={selectedIndex === 8}
@@ -149,14 +148,15 @@ export const MenuPrincipal = () => {
         <ListItemIcon>
           <Circle />
         </ListItemIcon>
-        <ListItemText primary="Configuracion" />
+        <ListItemText primary="Licenciamiento" />
       </ListItemButton>
     </List>    
     
     <Box sx={{ position: 'fixed', bottom: 10, left: 20, fontSize:12 }}>        
-        <Typography variant='body1'>Clever Origination</Typography>
-        <Typography variant='body1'>Version 1.0.2.0 * </Typography>
+        <Typography variant='body1'>BeClever Origination</Typography>
+        <Typography variant='body1'>Version 1.0.0.1 </Typography>
         <Typography variant='body1'>&reg; BeClever</Typography>
+        <Typography variant='body1'>Permiso:{permission}</Typography>
     </Box>
     
     </>             

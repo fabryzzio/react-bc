@@ -1,12 +1,11 @@
 
 import { DashBoardLayout } from '../layout/DashBoardLayout';
+import { FormProfile } from '../views';
 export const AccountPage = () => {
     
   return (    
-    <DashBoardLayout>              
-        
-        <h1> Account page </h1>     
-                
+    <DashBoardLayout>        
+        <FormProfile></FormProfile>
     </DashBoardLayout>
   )
 }

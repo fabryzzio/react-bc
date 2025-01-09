@@ -14,18 +14,15 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             //ml: { sm: `${ drawerWidth }px` },
             backgroundColor: "white", 
             margin:0
-            
          }}
         >
-        <Toolbar>
-                        
+        <Toolbar>                        
             <IconButton color='inherit' edge="start" sx={{  display: { sm: 'none' } }}>   
                 {/* <MenuOutlined />   */}                
             </IconButton>            
             
             <Grid container>
-                <MenuProducts></MenuProducts>
-                
+                <MenuProducts></MenuProducts>                
                 <Box sx={{ display: { xs: 'none', sm:'block' }, ml:1, padding:1}}>
                     <img src={logo} alt="Logo" width={140} />    
                 </Box>                

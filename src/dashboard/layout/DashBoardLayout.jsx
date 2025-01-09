@@ -1,8 +1,6 @@
 import { Box } from '@mui/material';
 import {  NavBarProduct, SideBar } from '../components';
 
-
-
 const drawerWidth = 250;
 
 export const DashBoardLayout = ({ children, navbar = true }) => {
@@ -11,7 +9,6 @@ export const DashBoardLayout = ({ children, navbar = true }) => {
       {/* Para los casos que no se necesite la barra superior*/}
       {navbar ? (
         <Box
-          
           sx={{
             width: { md: drawerWidth },
             flexShrink: { md: 0 },            
@@ -29,7 +26,7 @@ export const DashBoardLayout = ({ children, navbar = true }) => {
           sx={{
             flexGrow: 1,            
             p:2,
-            // ml: `${64}px` ,
+            // ml: `${64}px` , //Solo si 
             mt:16,
             flexDirection: 'column'
             //width: { md: `calc(100% - ${drawerWidth}px)` },

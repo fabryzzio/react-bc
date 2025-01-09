@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { AccountPage, DashBoardPage, DashBoardPage2, DashBoardPage3, DashBoardPage4, NotFoundPage, ProfilePage, ProductsPage } from "../pages/"
+import { AccountPage, DashBoardPage, DashBoardPage4, NotFoundPage, ProfilePage, ProductsPage, ComponentsPage, ChangePassPage, HomePage, SeguridadPage, PersonalesPage } from "../pages/"
 import { permissionAuth } from "../../constants";
 
 
@@ -15,18 +15,19 @@ export const DashboardRoutes = ( { permission = "user2" }) => {
 
       {permission === permissionAuth.ADMIN && (
         <>
-          <Route path="/dashboard" element={<DashBoardPage title="Home" />} />
-          <Route path="/dashboard2" element={<DashBoardPage2 title="Seguridad" />} />
-          <Route path="/dashboard3" element={<DashBoardPage3 title="Prendarios" />} />
-          <Route path="/dashboard4" element={<DashBoardPage4 title="Personales" />} />
+          <Route path="/dashboard" element={<HomePage title="Home" />} />
+          <Route path="/seguridad" element={<SeguridadPage title="Seguridad" />} />
+          <Route path="/prendarios" element={<PersonalesPage title="Prendarios" />} />
+          <Route path="/personales" element={<DashBoardPage4 title="Personales" />} />
+          <Route path="/componentes" element={<ComponentsPage title="Components" />} />
         </>
       )}
 
       {permission === permissionAuth.USER && (
         <>
           <Route path="/dashboard" element={<DashBoardPage title="Home" />} />
-          <Route path="/dashboard3" element={<DashBoardPage3 title="Prendarios" />} />
-          <Route path="/dashboard4" element={<DashBoardPage4 title="Personales" />} />
+          <Route path="/prendarios" element={<DashBoardPage3 title="Prendarios" />} />
+          <Route path="/personlaes" element={<DashBoardPage4 title="Personales" />} />
         </>
       )}
 
@@ -40,6 +41,7 @@ export const DashboardRoutes = ( { permission = "user2" }) => {
       {/* Profile and Account pages are always accessible */}
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/account" element={<AccountPage />} />
+      <Route path="/change-password" element={<ChangePassPage />} />
 
       {/* Not Found route */}
       <Route path="/not-found" element={<NotFoundPage />} />

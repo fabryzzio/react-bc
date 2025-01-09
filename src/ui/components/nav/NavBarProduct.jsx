@@ -55,8 +55,8 @@ export const NavBarProduct = ({ drawerWidth = 240 }) => {
                         onChange={handleChangeTab}
                         aria-label="wrapped label tabs dashboard">
                         
-                        <Tab value="one" label="BackOffice"  />
-                        <Tab value="two" label="Parametrizador" />
+                        {/* <Tab value="one" label="BackOffice"  />
+                        <Tab value="two" label="Parametrizador" /> */}
                     </Tabs>
                     </Box>
                 </Grid>

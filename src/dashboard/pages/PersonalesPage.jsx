@@ -1,12 +1,10 @@
-import { Typography } from '@mui/material';
 import { DashBoardLayout } from '../layout/DashBoardLayout';
-import { BasicTable } from '../components';
 import { TodoTable } from '../components/tables/TodoTable';
 
 
-export const DashBoardPage3 = ({ title = "Dashboard 3"}) => {
+export const PersonalesPage = ({ title = "Personales"}) => {
   return (
-    <DashBoardLayout>                    
+    <DashBoardLayout>                  
       <TodoTable title={title}></TodoTable>
     </DashBoardLayout>
   )

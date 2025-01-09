@@ -48,7 +48,8 @@ export const bcTheme = createTheme({
                       backgroundColor: 'white',                 
                     },
                     '& .MuiFilledInput-root:focus': {
-                            backgroundColor: '#e8f0f1',                            
+                            //backgroundColor: '#e8f0f1',                            
+                            backgroundColor: 'white',                            
                             borderColor: '#1890ff',
                             boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
                         },
@@ -115,9 +116,9 @@ export const bcTheme = createTheme({
               root: {
                 //Style general buttons general
                 padding: '8px',
-                fontSize: "16px",
+                // fontSize: "16px",
                 textTransform: 'none',                
-                fontWeight: 'bold',
+                // fontWeight: 'bold',
                 lineHeight: 1.75,
                 
               },
